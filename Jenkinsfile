@@ -1,11 +1,13 @@
 pipeline{
     agent any
-
+    tools {
+        nodejs: '16.15.1'
+    }
     stages {
         stage('build angular app') {
             steps {
                 script {
-                    bat "ng build --configuration=production --output-path dist"
+                    bat "npm run ng build --configuration=production --output-path dist"
                 }
             }
         }
