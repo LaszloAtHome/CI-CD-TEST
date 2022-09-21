@@ -1,2 +1,2 @@
 #!/bin/bash
-del /S C:\\inetpub\\wwwroot\\*
+rmdir /S /Q C:\\inetpub\\wwwroot
