@@ -5,7 +5,7 @@ pipeline{
         stage('delete old files') {
             steps {
                 script {
-                    bat "del /q C:\\Tempinetpub\\wwwroot\\*"
+                    bat "del /q C:\\inetpub\\wwwroot\\*"
                 }
             }
         }
