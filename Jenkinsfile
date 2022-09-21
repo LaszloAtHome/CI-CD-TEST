@@ -26,7 +26,7 @@ pipeline{
         stage('copy new dist') {
           steps {
               script {
-                  bat "xcopy .\\dist* c:\\inetpub\\wwwroot\\ /E /d"
+                  bat "xcopy .\\dist\\* c:\\inetpub\\wwwroot\\ /E /d"
               }
           }
         }
