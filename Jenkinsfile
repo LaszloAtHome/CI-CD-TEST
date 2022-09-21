@@ -2,33 +2,19 @@ pipeline{
     agent any
 
     stages {
-        stage('docker build') {
+        stage('build angular app') {
             steps {
                 script {
-                    sh "docker build -t laszloathome/ci-cd-test:1.0.0-${BUILD_ID} ."
+                    sh "ng build --configuration=production --output-path dist"
                 }
             }
         }
-        stage('docker push') {
+        stage('delete old files') {
             steps {
                 script {
-                    sh "docker push laszloathome/CI-CD-TEST:1.0.0-${BUILD_ID}"
+                    sh "-c 'rm -rf /c/inetpub/wwwroot/*'"
                 }
             }
-        }
-        stage('docker compose pull') {
-          steps {
-              script {
-                  sh "docker-compose pull angularapp"
-              }
-          }
-        }
-        stage('docker compose up') {
-          steps {
-              script {
-                  sh "docker-compose up -d angularapp"
-              }
-          }
         }
     }
 }
