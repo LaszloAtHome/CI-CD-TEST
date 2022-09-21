@@ -9,17 +9,12 @@ pipeline{
                 }
             }
         }
-        stage('delete old files') {
+        stage('delete old folders & files') {
             steps {
                 script {
                     bat "del /q C:\\inetpub\\wwwroot\\*"
-                }
-            }
-        }
-        stage('delete old folders') {
-            steps {
-                script {
                     bat 'FOR /D %%p IN ("C:\\inetpub\\wwwroot\\*.*") DO rmdir "%%p" /s /q'
+                    bat 'mkdir C:\\inetpub\\wwwroot\\api'
                 }
             }
         }
@@ -30,26 +25,12 @@ pipeline{
               }
           }
         }
-        stage('stop iis') {
-          steps {
-              script {
-                  bat "NET STOP IISADMIN"
-              }
-          }
-        }
-        stage('start iis') {
-          steps {
-              script {
-                  bat "NET START IISADMIN"
-              }
-          }
-        }
-        stage('start w3svc') {
-          steps {
-              script {
-                  bat "NET START W3svc"
-              }
-          }
-        }
+        // stage('restart IIS') {
+        //   steps {
+        //       script {
+        //           bat "iisreset /noforce"
+        //       }
+        //   }
+        // }
     }
 }
