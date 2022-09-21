@@ -2,6 +2,13 @@ pipeline{
     agent any
     tools { nodejs 'node' }
     stages {
+        stage('stop IIS') {
+          steps {
+              script {
+                  bat "iisreset /stop"
+              }
+          }
+        }
         stage('build angular app') {
             steps {
                 script {
@@ -25,12 +32,12 @@ pipeline{
               }
           }
         }
-        // stage('restart IIS') {
-        //   steps {
-        //       script {
-        //           bat "iisreset /noforce"
-        //       }
-        //   }
-        // }
+        stage('start IIS') {
+          steps {
+              script {
+                  bat "iisreset /start"
+              }
+          }
+        }
     }
 }
