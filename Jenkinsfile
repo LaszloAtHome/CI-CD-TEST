@@ -2,6 +2,13 @@ pipeline{
     agent any
     tools { nodejs 'node' }
     stages {
+        stage('build angular app') {
+            steps {
+                script {
+                    bat "npm run ng -- build --configuration=production --output-path dist"
+                }
+            }
+        }
         stage('delete old files') {
             steps {
                 script {
