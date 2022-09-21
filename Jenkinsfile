@@ -5,7 +5,14 @@ pipeline{
         stage('delete old files') {
             steps {
                 script {
-                    bat 'del /q "C:\\Tempinetpub\\wwwroot\\*" && FOR /D %%p IN ("C:\\inetpub\\wwwroot\\*.*") DO rmdir "%%p" /s /q'
+                    bat "sdel /q C:\\Tempinetpub\\wwwroot\\*"
+                }
+            }
+        }
+        stage('delete old folders') {
+            steps {
+                script {
+                    bat "FOR /D '%p' IN (C:\\inetpub\\wwwroot\\*.*) DO rmdir '%p' /s /q"
                 }
             }
         }
