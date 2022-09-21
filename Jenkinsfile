@@ -5,7 +5,7 @@ pipeline{
         stage('delete old files') {
             steps {
                 script {
-                    bat ".\\CI\\clean.sh"
+                    bat "rmdir /S /Q C:\\inetpub\\wwwroot"
                 }
             }
         }
