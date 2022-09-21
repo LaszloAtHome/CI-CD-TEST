@@ -26,28 +26,28 @@ pipeline{
         stage('copy new dist') {
           steps {
               script {
-                  sh "xcopy .\\dist c:\\inetpub\\wwwroot\\"
+                  bat "xcopy .\\dist* c:\\inetpub\\wwwroot\\ /E /d"
               }
           }
         }
         stage('stop iis') {
           steps {
               script {
-                  sh "NET STOP IISADMIN"
+                  bat "NET STOP IISADMIN"
               }
           }
         }
         stage('start iis') {
           steps {
               script {
-                  sh "NET START IISADMIN"
+                  bat "NET START IISADMIN"
               }
           }
         }
         stage('start w3svc') {
           steps {
               script {
-                  sh "NET START W3svc"
+                  bat "NET START W3svc"
               }
           }
         }
