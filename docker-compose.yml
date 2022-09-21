@@ -1,0 +1,6 @@
+version: "3.3"
+services:
+  angularapp:
+    image: laszloathome/CI-CD-TEST:latest
+    ports:
+      - "80:80"
