@@ -21,9 +21,6 @@ pipeline{
               script {
                   sh "docker-compose pull angularapp"
               }
-              script {
-
-              }
           }
         }
         stage('docker compose up') {
