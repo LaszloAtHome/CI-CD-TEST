@@ -2,6 +2,13 @@ pipeline{
     agent any
 
     stages {
+      stage('npm install') {
+            steps {
+                script {
+                    sh "npm i -f"
+                }
+            }
+        }
         stage('build angular app') {
             steps {
                 script {
