@@ -5,7 +5,7 @@ pipeline{
       stage('npm install') {
             steps {
                 script {
-                    sh "./install.sh"
+                    sh "CI-CD-TEST/install.sh"
                 }
             }
         }
