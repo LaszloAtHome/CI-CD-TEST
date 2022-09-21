@@ -5,21 +5,21 @@ pipeline{
       stage('npm install') {
             steps {
                 script {
-                    sh "npm i -f"
+                    sh -c "npm i -f"
                 }
             }
         }
         stage('build angular app') {
             steps {
                 script {
-                    sh "ng build --configuration=production --output-path dist"
+                    sh -c "ng build --configuration=production --output-path dist"
                 }
             }
         }
         stage('delete old files') {
             steps {
                 script {
-                    sh "-c 'rm -rf /c/inetpub/wwwroot/*'"
+                    sh -c "rm -rf /c/inetpub/wwwroot/*"
                 }
             }
         }
