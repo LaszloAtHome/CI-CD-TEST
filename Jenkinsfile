@@ -12,7 +12,7 @@ pipeline{
         stage('delete old files') {
             steps {
                 script {
-                    bat "rmdir /S /Q C:\\inetpub\\wwwroot && mkdir C:\\inetpub\\wwwroot"
+                    bat "del /q 'C:\\Tempinetpub\\wwwroot\\*' && FOR /D %p IN ('C:\\inetpub\\wwwroot\\*.*') DO rmdir "%p" /s /q"
                 }
             }
         }
