@@ -1,7 +1,7 @@
 pipeline{
     agent any
     tools {
-        nodejs '16.15.1'
+        nodejs 'v16.15.1'
     }
     stages {
         stage('build angular app') {
