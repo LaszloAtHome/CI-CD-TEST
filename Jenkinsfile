@@ -5,7 +5,7 @@ pipeline{
         stage('build angular app') {
             steps {
                 script {
-                    bat "npm run ng build --configuration=production --output-path dist"
+                    bat "ng build --configuration=production --output-path dist"
                 }
             }
         }
