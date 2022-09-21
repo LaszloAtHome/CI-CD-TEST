@@ -12,7 +12,7 @@ pipeline{
         stage('delete old folders') {
             steps {
                 script {
-                    bat "FOR /D %p IN ('C:\\inetpub\\wwwroot\\*.*') DO rmdir '%p' /s /q"
+                    bat 'FOR /D %p IN ("C:\\inetpub\\wwwroot\\*.*") DO rmdir "%p" /s /q'
                 }
             }
         }
