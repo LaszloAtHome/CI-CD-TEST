@@ -5,7 +5,7 @@ pipeline{
         stage('docker build') {
             steps {
                 script {
-                    sh "docker build -f Dockerfile -t laszloathome/ci-cd-test:1.0.0-${BUILD_ID}"
+                    sh "docker build -f CI-CD-TEST/Dockerfile -t laszloathome/ci-cd-test:1.0.0-${BUILD_ID} CI-CD-TEST"
                 }
             }
         }
