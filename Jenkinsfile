@@ -12,14 +12,14 @@ pipeline{
         stage('build angular app') {
             steps {
                 script {
-                    sh -c "ng build --configuration=production --output-path dist"
+                    sh "-c 'ng build --configuration=production --output-path dist'"
                 }
             }
         }
         stage('delete old files') {
             steps {
                 script {
-                    sh -c "rm -rf /c/inetpub/wwwroot/*"
+                    sh "-c 'rm -rf /c/inetpub/wwwroot/*'"
                 }
             }
         }
